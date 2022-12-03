@@ -1,0 +1,73 @@
+/* Minden elemet kivalasztok, majd megadtam a meretezesuket es a betutipusat es vastagsagat*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Gotham Rounded, sans-serif;
+  font-weight: normal;
+}
+
+/* Hatter beallitasa piros-kek szinatmenettel*/
+body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, #dc0000, #03e5f0);
+}
+
+/* Gombok megjelenese: racsozott, kepernyo kozepere igazitott, fuggolegesen rendezett,
+minden oszlop el van osztva egymastol es 200 pixel szeles, minden sor 80 pixel szeles
+hogy az eredmenykijelzon megfelelo nagysagu legyen a minmax erteket 120 pixelre allitottam
+maximum erteket auto-ra*/
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 200px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 80px);
+}
+
+/* Minden gomra ervenyes tulajdonsagok*/
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/*Hatterszin valtoztatas amikor az egerrel ramutatok egy gombra*/
+.calculator-grid > button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+/*Eredmeny kijelzo beallitasa:teljes szelessegre kiterjed,fekete hattere van, jobbra igazitott
+az eredmeny, el vannak osztva egymastol, fuggolegesen rendezett, tul hosszu eredmeny esten
+sortorest alkalmaz*/
+.output {
+  grid-column: 1 / -1;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+/*Eredmenykijelzo elozo szam, eredmeny megjelenitese: annak szine es merete. Ugyanez az
+aktualis szamra*/
+.output .previous-operand {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+}
+
+.output .current-operand {
+  color: white;
+  font-size: 2.5rem;
+}
